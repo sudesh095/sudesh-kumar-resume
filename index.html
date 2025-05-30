@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudesh Kumar - Senior Android Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .resume-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .resume-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid #3498db;
+        }
+        
+        .header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header h2 {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            color: #ecf0f1;
+            font-weight: 300;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95em;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 0;
+        }
+        
+        .sidebar {
+            background: #f8f9fa;
+            padding: 40px 30px;
+            border-right: 1px solid #e9ecef;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section h3 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+            position: relative;
+        }
+        
+        .section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: #e74c3c;
+        }
+        
+        .profile-summary {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .profile-summary p {
+            font-size: 1.05em;
+            line-height: 1.7;
+        }
+        
+        .experience-item, .education-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #3498db;
+        }
+        
+        .experience-item h4 {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+        
+        .company {
+            color: #3498db;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+        
+        .date {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        
+        .experience-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .experience-item li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .experience-item li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-size: 0.8em;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        
+        .skill-category {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .skill-category h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+        
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+        
+        .achievement-badge {
+            background: linear-gradient(135deg, #fd79a8, #e84393);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 5px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        
+        .certifications {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+        
+        .cert-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .cert-issuer {
+            color: #3498db;
+            font-size: 0.9em;
+        }
+        
+        .languages-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .language-level {
+            background: #3498db;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+        }
+        
+        .career-goals {
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .career-goals h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                gap: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <header class="header">
+            <h1>SUDESH KUMAR</h1>
+            <h2>Senior Android Developer & Technical Lead</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span> itsudesh95@gmail.com
+                </div>
+                <div class="contact-item">
+                    <span>📱</span> +91 842 744 4424
+                </div>
+                <div class="contact-item">
+                    <span>📍</span> Phnom Penh, Cambodia
+                </div>
+                <div class="contact-item">
+                    <span>💼</span> linkedin.com/in/sudesh-kumar-3b261496
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="section">
+                    <h3>CORE EXPERTISE</h3>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Languages</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Kotlin</span>
+                                <span class="skill-tag">Java</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Architecture</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">MVVM</span>
+                                <span class="skill-tag">Clean Arch</span>
+                                <span class="skill-tag">MVP</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4>UI/UX</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Jetpack Compose</span>
+                                <span class="skill-tag">Material Design</span>
+                                <span class="skill-tag">XML</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Database</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Room</span>
+                                <span class="skill-tag">Firebase</span>
+                                <span class="skill-tag">SQLite</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Tools & Frameworks</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Dagger/Hilt</span>
+                                <span class="skill-tag">Coroutines</span>
+                                <span class="skill-tag">Retrofit</span>
+                                <span class="skill-tag">Socket.IO</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>ACHIEVEMENTS</h3>
+                    <div class="achievement-badge">8+ Years Experience</div>
+                    <div class="achievement-badge">Team Leadership</div>
+                    <div class="achievement-badge">Cross-Platform Expertise</div>
+                    <div class="achievement-badge">Fintech Specialist</div>
+                    <div class="achievement-badge">Performance Optimization</div>
+                </div>
+
+                <div class="section">
+                    <h3>CERTIFICATIONS</h3>
+                    <div class="certifications">
+                        <div class="cert-title">Project Management Foundations</div>
+                        <div class="cert-issuer">Coursera (2023)</div>
+                    </div>
+                    <div class="certifications">
+                        <div class="cert-title">Android DI with Dagger & Kotlin</div>
+                        <div class="cert-issuer">LinkedIn Learning</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>LANGUAGES</h3>
+                    <div class="languages-item">
+                        <span>Hindi</span>
+                        <span class="language-level">Native</span>
+                    </div>
+                    <div class="languages-item">
+                        <span>English</span>
+                        <span class="language-level">Professional</span>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>TOOLS</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Android Studio</span>
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Jira</span>
+                        <span class="skill-tag">Firebase Console</span>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="content">
+                <div class="profile-summary">
+                    <p>Senior Android Developer with 8+ years of expertise in building scalable, high-performance mobile applications across fintech, gaming, and enterprise domains. Proven track record of leading development teams, architecting complex systems, and delivering end-to-end solutions. Specialized in modern Android development with Kotlin, Jetpack Compose, and clean architecture patterns. Ready to transition into technical leadership roles as Lead Developer or Android Architect.</p>
+                </div>
+
+                <div class="section">
+                    <h3>PROFESSIONAL EXPERIENCE</h3>
+                    
+                    <div class="experience-item">
+                        <h4>Senior Android Developer</h4>
+                        <div class="company">Loma Technologies, Cambodia</div>
+                        <div class="date">Aug 2023 – Present</div>
+                        <ul>
+                            <li>Lead development and maintenance of high-traffic casino applications serving 100K+ daily active users</li>
+                            <li>Architect and implement scalable solutions using MVVM pattern with clean architecture principles</li>
+                            <li>Collaborate with cross-functional teams for requirement analysis, sprint planning, and feature delivery</li>
+                            <li>Mentor junior developers and conduct code reviews to maintain high code quality standards</li>
+                            <li>Optimize app performance resulting in 40% reduction in crash rates and improved user retention</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <h4>Senior Android Developer</h4>
+                        <div class="company">DSewa, India</div>
+                        <div class="date">Dec 2022 – Aug 2023</div>
+                        <ul>
+                            <li>Architected and developed end-to-end banking and personal finance application for Nepal market</li>
+                            <li>Implemented secure payment gateway integrations and wallet management systems</li>
+                            <li>Built comprehensive recharge and bill payment modules with real-time transaction processing</li>
+                            <li>Ensured compliance with financial regulations and implemented robust security measures</li>
+                            <li>Delivered project 2 weeks ahead of schedule with zero critical bugs in production</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <h4>Android Consultant</h4>
+                        <div class="company">Supersourcing, MP, India</div>
+                        <div class="date">Feb 2022 – Nov 2022</div>
+                        <ul>
+                            <li>Provided technical consulting for third-party game integration solutions</li>
+                            <li>Optimized WebView performance for seamless mini-game experiences within native apps</li>
+                            <li>Resolved critical bugs and performance issues, improving app stability by 60%</li>
+                            <li>Collaborated directly with clients to gather requirements and deliver customized solutions</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <h4>Senior Software Engineer</h4>
+                        <div class="company">EpitronX, India</div>
+                        <div class="date">Nov 2021 – Feb 2022</div>
+                        <ul>
+                            <li>Led architecture design and implementation for enterprise mobile solutions</li>
+                            <li>Mentored development team and established best practices for code quality</li>
+                            <li>Collaborated with stakeholders to define technical roadmap and feature prioritization</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <h4>Senior Software Engineer</h4>
+                        <div class="company">Ganesha Webtech Solutions, India</div>
+                        <div class="date">Jun 2019 – Sep 2021</div>
+                        <ul>
+                            <li>Designed and implemented RESTful API integrations with clean code architecture</li>
+                            <li>Developed cross-platform database solutions using SQLite for web and mobile sync</li>
+                            <li>Contributed 100% to fast-paced product development cycles</li>
+                            <li>Maintained and enhanced existing applications with performance optimizations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>EDUCATION</h3>
+                    <div class="education-item">
+                        <h4>Master of Computer Application</h4>
+                        <div class="company">Jaipur National University</div>
+                        <div class="date">2020 – 2021</div>
+                        <p>Advanced computer science curriculum focusing on software engineering principles, system design, and emerging technologies. Specialized in mobile application development and software architecture.</p>
+                    </div>
+                    
+                    <div class="education-item">
+                        <h4>Bachelor of Computer Application</h4>
+                        <div class="company">Chattrapati Shahu Ji Maharaj University</div>
+                        <div class="date">2012 – 2015</div>
+                        <p>Comprehensive foundation in computer science fundamentals, programming methodologies, and software development lifecycle.</p>
+                    </div>
+                </div>
+
+                <div class="career-goals">
+                    <h4>CAREER ASPIRATIONS</h4>
+                    <p>Seeking opportunities to transition into <strong>Lead Android Developer</strong> or <strong>Android Architect</strong> roles where I can leverage my 8+ years of experience to drive technical strategy, mentor larger teams, and architect scalable mobile solutions. Open to roles in <strong>Engineering Management</strong> that combine technical expertise with people leadership.</p>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
